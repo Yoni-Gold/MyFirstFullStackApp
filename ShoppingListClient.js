@@ -1,3 +1,4 @@
+const inputElement = document.querySelector('#inputProduct'); // input element
 
 
 const productsButtonElement = document.querySelector('#products');
@@ -7,7 +8,6 @@ productsButtonElement.addEventListener('click', async ()=> {
     console.log(response.data);
 });
 
-const inputElement = document.querySelector('#inputProduct');
 const searchProductButtonElement = document.querySelector('#searchProduct');
 // get product by id
 searchProductButtonElement.addEventListener('click', async ()=> {
@@ -29,7 +29,7 @@ newProductButtonElement.addEventListener('click', async ()=> {
 });
 
 const updateProductButtonElement = document.querySelector('#updateProduct');
-// update product
+// update product by id
 updateProductButtonElement.addEventListener('click', async ()=> {
     let updateProduct = {
         name: 'bread',
@@ -40,4 +40,10 @@ updateProductButtonElement.addEventListener('click', async ()=> {
     console.log(response.data);
 });
 
-
+const deleteProductButtonElement = document.querySelector('#deleteProduct');
+// delete product by id
+deleteProductButtonElement.addEventListener('click', async ()=> {
+    let productID = inputElement.value;
+    const response = await axios.delete(`http://localhost:3000/products/${productID}`);
+    console.log(response.data);
+});

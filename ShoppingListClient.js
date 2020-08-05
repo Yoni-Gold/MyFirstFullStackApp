@@ -6,6 +6,8 @@ const productsButtonElement = document.querySelector('#products');
 productsButtonElement.addEventListener('click', async ()=> { 
     const response = await axios.get(`http://localhost:3000/products/`);
     console.log(response.data);
+    allProductsTable(response.data);
+
 });
 
 const searchProductButtonElement = document.querySelector('#searchProduct');
@@ -47,3 +49,23 @@ deleteProductButtonElement.addEventListener('click', async ()=> {
     const response = await axios.delete(`http://localhost:3000/products/${productID}`);
     console.log(response.data);
 });
+
+function allProductsTable (products) { // display all products in a table
+    let htmlProductsTable = `
+    <table id="productsTable">
+        <tr>
+            <th>name</th>
+            <th>amount</th>
+            <th>price</th>
+        </tr>`; // sending </table> at the end 
+    products.forEach((product,i)=> {
+        let htmlTableRow = `
+        <tr>
+            <td>${product.name}</td>
+            <td>${product.amount}</td>
+            <td>${product.price}</td>
+        </tr>`;
+        htmlProductsTable += htmlTableRow ;
+    });
+    document.querySelector('.productsContainer').innerHTML = htmlProductsTable + `</table>`;
+}

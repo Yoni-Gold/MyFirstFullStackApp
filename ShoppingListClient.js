@@ -16,15 +16,28 @@ searchProductButtonElement.addEventListener('click', async ()=> {
     console.log(response.data);
 });
 
-const newProductButton = document.querySelector('#newProduct');
+const newProductButtonElement = document.querySelector('#newProduct');
 // post new product to the list
-newProductButton.addEventListener('click', async ()=> {
-    let product = {
+newProductButtonElement.addEventListener('click', async ()=> {
+    let newProduct = {
         name: 'coffee',
         amount: '3',
         price: '10'
     };
-    const response = await axios.post(`http://localhost:3000/products/`, product);
+    const response = await axios.post(`http://localhost:3000/products/`, newProduct);
     console.log(response.data);
 });
+
+const updateProductButtonElement = document.querySelector('#updateProduct');
+// update product
+updateProductButtonElement.addEventListener('click', async ()=> {
+    let updateProduct = {
+        name: 'bread',
+        amount: '1',
+        price: '5'
+    };
+    const response = await axios.put(`http://localhost:3000/products/1`, updateProduct);
+    console.log(response.data);
+});
+
 

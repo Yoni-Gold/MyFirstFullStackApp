@@ -1,56 +1,57 @@
 const inputElement = document.querySelector('#inputProduct'); // input element
 
-
-const productsButtonElement = document.querySelector('#products');
-// get products list from server
-productsButtonElement.addEventListener('click', async ()=> { 
+// ========== get list of products ==========
+async function displayListOfProducts () {
     const response = await axios.get(`http://localhost:3000/products/`);
-    console.log(response.data);
     allProductsTable(response.data);
+}
+displayListOfProducts();
 
-});
-
+// ========== get product by id ==========
 const searchProductButtonElement = document.querySelector('#searchProduct');
-// get product by id
 searchProductButtonElement.addEventListener('click', async ()=> {
     let productID = inputElement.value;
     const response = await axios.get(`http://localhost:3000/products/${productID}`);
     console.log(response.data);
 });
 
+// ========== post new product to the list ==========
 const newProductButtonElement = document.querySelector('#newProduct');
-// post new product to the list
 newProductButtonElement.addEventListener('click', async ()=> {
-    let newProduct = {
-        name: 'coffee',
-        amount: '3',
-        price: '10'
-    };
-    const response = await axios.post(`http://localhost:3000/products/`, newProduct);
-    console.log(response.data);
+    let newName = document.querySelector('#newName');
+    let newAmount = document.querySelector('#newAmount');
+    let newPrice = document.querySelector('#newPrice');
+    
+    if (newName.value != "" && newAmount.value != "" && newPrice.value != ""){
+        let newProduct = {
+            name: newName.value,
+            amount: newAmount.value,
+            price: newPrice.value
+        };
+        newName.value = '';
+        newAmount.value = '';
+        newPrice.value = '';
+        const response = await axios.post(`http://localhost:3000/products/`, newProduct);
+        console.log(response.data);
+        displayListOfProducts();
+    } else {
+        alert('must insert name, amount and price');
+    }
 });
 
-const updateProductButtonElement = document.querySelector('#updateProduct');
-// update product by id
-updateProductButtonElement.addEventListener('click', async ()=> {
-    let updateProduct = {
-        name: 'bread',
-        amount: '1',
-        price: '5'
-    };
-    const response = await axios.put(`http://localhost:3000/products/1`, updateProduct);
-    console.log(response.data);
-});
 
+
+// ========== delete product by id ==========
 const deleteProductButtonElement = document.querySelector('#deleteProduct');
-// delete product by id
 deleteProductButtonElement.addEventListener('click', async ()=> {
-    let productID = inputElement.value;
+    let productID = inputElement.value; // fix: get ID from backend 
     const response = await axios.delete(`http://localhost:3000/products/${productID}`);
     console.log(response.data);
+    displayListOfProducts();
 });
 
-function allProductsTable (products) { // display all products in a table
+// ========== display all products in a table ==========
+function allProductsTable (products) { 
     let htmlProductsTable = `
     <table id="productsTable">
         <tr>
@@ -69,3 +70,42 @@ function allProductsTable (products) { // display all products in a table
     });
     document.querySelector('.productsContainer').innerHTML = htmlProductsTable + `</table>`;
 }
+
+
+
+// ========== update product ==========
+const updateProductTestButtonElement = document.querySelector('#updateProduct');
+updateProductTestButtonElement.addEventListener('click', async ()=> {
+    let productID = inputElement.value; // fix: get ID from backend
+
+    const updateContainerElement = document.querySelector('#updateContainer');
+    const getResponse = await axios.get(`http://localhost:3000/products/${productID}`);
+    console.log(getResponse.data);
+    let htmlText = `
+        <div id="innerContainer">
+            <div>update product</div>
+            <div>${getResponse.data.name}</div>
+            <div>Amount: <input id="amountUpdate" placeholder="${getResponse.data.amount}"></div>
+            <div>Price: <input id="priceUpdate" placeholder="${getResponse.data.price}"></div>
+            <button id="applyUpdate">Apply Update</button>
+        </div>`;
+    updateContainerElement.innerHTML = htmlText;
+
+    document.querySelector('#applyUpdate').addEventListener('click', async ()=> {
+        let updatedProduct = {
+            name: getResponse.data.name,
+            amount: document.querySelector('#amountUpdate').value,
+            price: document.querySelector('#priceUpdate').value
+        };
+        const updateResponse = await axios.put(`http://localhost:3000/products/1`, updatedProduct);
+        console.log(updateResponse.data);
+
+        document.querySelector('#innerContainer').remove();
+        displayListOfProducts()
+    });
+});
+
+
+
+
+

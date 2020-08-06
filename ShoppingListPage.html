@@ -12,10 +12,18 @@
     </div>
     <input id="inputProduct">
     <button id="searchProduct">search product</button><br>
-    <button id="newProduct">new product</button><br>
-    <button id="updateProduct">update product</button><br>
     <button id="deleteProduct">delete product</button>
-
+    <br><br><br>
+    <button id="updateProduct">update</button>
+    <div id="updateContainer"></div>
+    <br><br>
+    <div id="newContainer">
+        <div>product name<input id="newName" placeholder="product name"></div>
+        <div>amount<input id="newAmount" placeholder="amount"></div>
+        <div>price<input id="newPrice" placeholder="product price"></div>
+        <button id="newProduct">new product</button>
+    </div>
+    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./ShoppingListClient.js"></script>
 </body>

@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ClientStyle.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping</title>
+    
+    
 </head>
 <body>
     <h1>My Shopping List</h1>
-    <button id="products">get all products</button><br>
     <div class="productsContainer">
     </div>
-    <input id="inputProduct">
-    <button id="searchProduct">search product</button><br>
-    <button id="deleteProduct">delete product</button>
     <br><br><br>
-    <button id="updateProduct">update</button>
+    <input id="inputProduct" placeholder="insert name">
+    <button id="searchProduct">search product</button><br>
+    <br><br><br>
     <div id="updateContainer"></div>
     <br><br>
     <div id="newContainer">
-        <div>product name<input id="newName" placeholder="product name"></div>
-        <div>amount<input id="newAmount" placeholder="amount"></div>
-        <div>price<input id="newPrice" placeholder="product price"></div>
-        <button id="newProduct">new product</button>
+        <input id="newName" class="newInputElement" placeholder="product name">
+        <input id="newAmount" class="newInputElement" placeholder="amount">
+        <input id="newPrice" class="newInputElement" placeholder="product price">
+        <button id="newProduct">New Product</button>
     </div>
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

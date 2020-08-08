@@ -1,24 +1,92 @@
+html {
+    background-image: url("https://article.images.consumerreports.org/f_auto/prod/content/dam/CRO-Images-2020/Home-Garden/03Mar/CR-Home-Inlinehero-how-to-protect-yourself-from-coronavirus-while-grocery-shopping-0320");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
 body {
+    background-color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid #555555;
+    border-radius: 20px;
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    color: #ffffff;
+
+}
+
+h1 {
+    color: #ffffff;;
+    line-height: 1.2rem;
+}
+
+#divier {
+    width: 30%;
+    height: 3px;
+    background-color: #C19128;
+    margin-bottom: 25px;
+}
+#inputProduct {
+    font-family: 'Montserrat', sans-serif;
+    padding: 12px 20px;
+    margin: 8px 0;
+    width: 30%;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+#inputProduct:focus {
+    border: 3px solid #555;
+}
+
+#searchProduct {
     font-family: 'Montserrat', sans-serif;
     background-color: white;
     color: black;
     border: 2px solid #555555;
-    width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    padding: 20px 40px;
+    width: 20%;
+    margin: 8px 8px;
+    padding: 6px 10px;
     box-sizing: border-box;
-
+}
+#searchProduct:hover {
+    background-color: #555555;
+    color: white;
+    transition-duration: 0.4s;
 }
 
+.productsContainer {
+    display: inline-table;
+    overflow: scroll;
+    border: 2px solid black;
+    width: 60%;
+    margin: auto;
+    height: 250px;
+    text-align: center;
+}
+
+th {
+    width: 25%;
+}
+td {
+    width: 25%;
+}
 #updateContainer {
     border: 2px solid black;
     width: 50%;
+    margin-top: 20px;
     min-height: 200px;
     text-align: center;
 }
 .updateName {
-    /* todo: add css */
+    font-size: large;
+    margin-top: 5px;
 }
 
 .updateInputElement {
@@ -31,6 +99,9 @@ body {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+}
+.updateInputElement:focus {
+    border: 3px solid #555;
 }
 #applyUpdate {
     font-family: 'Montserrat', sans-serif;
@@ -49,8 +120,10 @@ body {
 }
 
 #newContainer {
+    display: inline-table;
     border: 2px solid black;
-    width: 50%;
+    width: 35%;
+    margin: auto;
     min-height: 200px;
     text-align: center;
 }

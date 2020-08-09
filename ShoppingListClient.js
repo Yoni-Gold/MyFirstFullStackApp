@@ -66,7 +66,7 @@ function allProductsTable (products) {
             <td>${product.price}</td>
             <td>
                 <button onclick="deleteProductById(${product.id})">[X]</button>
-                <button onclick="updateProductById(${product.id})">[+]</button>
+                <button onclick="updateProductById(${product.id})">[=]</button>
             </td>
         </tr>`;
         htmlProductsTable += htmlTableRow ;

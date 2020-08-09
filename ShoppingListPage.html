@@ -12,17 +12,20 @@
 <body>
     <h1>My Shopping List</h1>
     <div id="divider"></div>
-    <input id="inputProduct" placeholder="insert name">
-    <button id="searchProduct">search product</button>
-    <br>
-    <div class="productsContainer"></div>
-    <div id="newContainer">
-        <input id="newName" class="newInputElement" placeholder="product name">
-        <input id="newAmount" class="newInputElement" placeholder="amount">
-        <input id="newPrice" class="newInputElement" placeholder="product price">
-        <button id="newProduct">New Product</button>
+    <div class="gridContainer">
+        <div id="searchFunction">
+            <input id="inputProduct" placeholder="insert name">
+            <button id="searchProduct">search product</button>
+        </div>  
+        <div class="productsContainer"></div>
+        <div id="newContainer">
+            <input id="newName" class="newInputElement" placeholder="product name">
+            <input id="newAmount" class="newInputElement" placeholder="amount">
+            <input id="newPrice" class="newInputElement" placeholder="product price">
+            <button id="newProduct">New Product</button>
+        </div>
+        <div id="updateContainer"></div>
     </div>
-    <div id="updateContainer"></div>
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./ShoppingListClient.js"></script>

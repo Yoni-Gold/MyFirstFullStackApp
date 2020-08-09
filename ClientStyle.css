@@ -30,6 +30,10 @@ h1 {
     background-color: #C19128;
     margin-bottom: 25px;
 }
+
+.gridContainer {
+    
+}
 #inputProduct {
     font-family: 'Montserrat', sans-serif;
     padding: 12px 20px;

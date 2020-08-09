@@ -6,6 +6,13 @@ const server = express();
 
 server.use(express.json());
 server.use(printLog);
+server.use(express.static('./'));
+
+const {readFileSync } = require('fs');
+server.get('/', (request,response) => { // apply html page 
+    let file = readFileSync('./ShoppingListPage.html','utf8');
+    response.send(file);
+});
 
 function printLog(request, response, next) // this function is for seenig the requests in the console
 {

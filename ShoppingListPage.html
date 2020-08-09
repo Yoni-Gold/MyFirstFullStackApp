@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ClientStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    
+    
+</head>
+<body>
+    <h1>My Shopping List</h1>
+    <div id="divider"></div>
+    <div class="gridContainer">
+        <div id="searchFunction">
+            <input id="inputProduct" placeholder="insert name">
+            <button id="searchProduct">search product</button>
+        </div>  
+        <div class="productsContainer"></div>
+        <div id="newContainer">
+            <input id="newName" class="newInputElement" placeholder="product name">
+            <input id="newAmount" class="newInputElement" placeholder="amount">
+            <input id="newPrice" class="newInputElement" placeholder="product price">
+            <button id="newProduct">New Product</button>
+        </div>
+        <div id="updateContainer"></div>
+    </div>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./ShoppingListClient.js"></script>
+</body>
+</html>
